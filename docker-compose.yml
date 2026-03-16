@@ -17,10 +17,10 @@ services:
         dockerfile: Dockerfile
     image: stevenrbrandt/cxxex-src:2026
     container_name: cxxex-src-nbk
-    user: jovyan
-    entrypoint: bash /notebooks/notebk.sh
+    #user: jovyan
+    #entrypoint: bash /notebooks/notebk.sh
     #entrypoint: sleep infinity
     ports:
-      - "8004:8004"
+      - "8004:8888"
     volumes:
       - nbk_home:/home

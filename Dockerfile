@@ -91,4 +91,4 @@ USER jovyan
 WORKDIR /home/jovyan
 RUN cp /etc/skel/*.ipynb .
 ENV PORT=8888
-ENTRYPOINT [ "bash", "/notebook/notebk.sh" ]
+ENTRYPOINT [ "bash", "/notebooks/notebk.sh" ]
