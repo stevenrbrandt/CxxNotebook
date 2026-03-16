@@ -90,5 +90,5 @@ RUN perl -p -i -e 's/Boost::/boost_/g' /usr/local/lib64/pkgconfig/*.pc
 USER jovyan
 WORKDIR /home/jovyan
 RUN cp /etc/skel/*.ipynb .
-ENV PORT=8080
+ENV PORT=8888
 ENTRYPOINT [ "bash", "/notebook/notebk.sh" ]
