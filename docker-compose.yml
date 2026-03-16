@@ -1,0 +1,28 @@
+version: '2'
+# Use this file to build the C++Explorer instead of downloading it.
+# docker-compose -f docker-compose.build.yml build --pull
+
+volumes:
+    # Provide persistent storage 
+    nbk_home:
+
+services:
+
+  cxxex-src-workspace:
+    build:
+        args:
+          CPUS: 10
+          BUILD_TYPE: Release
+        context: .
+        dockerfile: Dockerfile
+    image: stevenrbrandt/cxxex-src:2026
+    container_name: cxxex-src-nbk
+    user: jovyan
+    entrypoint: bash /notebooks/notebk.sh
+    environment:
+      - "PORT=8080"
+      - "SECRET_TOKEN=spoon"
+    ports:
+      - "8080:8080"
+    volumes:
+      - nbk_home:/home
