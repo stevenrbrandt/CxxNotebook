@@ -19,10 +19,8 @@ services:
     container_name: cxxex-src-nbk
     user: jovyan
     entrypoint: bash /notebooks/notebk.sh
-    environment:
-      - "PORT=8080"
-      - "SECRET_TOKEN=spoon"
+    #entrypoint: sleep infinity
     ports:
-      - "8080:8080"
+      - "8004:8004"
     volumes:
       - nbk_home:/home
