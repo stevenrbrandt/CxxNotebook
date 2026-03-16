@@ -42,10 +42,11 @@ USER jovyan
 WORKDIR /home/jovyan
 USER root
 RUN pip3 install --upgrade pip
-RUN pip3 install jupyter matplotlib numpy termcolor oauthenticator==15.1.0 jupyterhub==4.1.5
+RUN pip3 install jupyter matplotlib numpy termcolor 
+#oauthenticator==15.1.0 jupyterhub==4.1.5
 
-RUN dnf install -y npm
-RUN npm install -g configurable-http-proxy 
+#RUN dnf install -y npm
+#RUN npm install -g configurable-http-proxy 
 
 RUN git clone --branch hpsf_2026 --depth 1 https://github.com/STEllAR-GROUP/hpx.git /hpx
 WORKDIR /hpx
