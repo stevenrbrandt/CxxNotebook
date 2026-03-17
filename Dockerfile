@@ -76,7 +76,7 @@ RUN cmake ..
 RUN make install
 
 WORKDIR /notebooks
-COPY ./notebk.sh ./
+COPY ./binder/start ./start
 
 WORKDIR /root
 RUN chmod 755 .
@@ -87,9 +87,9 @@ COPY notebooks/*.ipynb /etc/skel/
 RUN jupyter nbconvert --clear-output --inplace /etc/skel/*.ipynb
 
 RUN perl -p -i -e 's/Boost::/boost_/g' /usr/local/lib64/pkgconfig/*.pc
+RUN pip3 install jupyterlab
 
 USER jovyan
 WORKDIR /home/jovyan
 RUN cp /etc/skel/*.ipynb .
 ENV PORT=8888
-ENTRYPOINT [ "bash", "/notebooks/notebk.sh" ]
