@@ -75,8 +75,8 @@ WORKDIR /BlazeIterative/build
 RUN cmake ..
 RUN make install
 
-WORKDIR /notebooks
-COPY ./binder/start ./start
+#WORKDIR /notebooks
+#COPY ./binder/start ./start
 
 WORKDIR /root
 RUN chmod 755 .
@@ -92,5 +92,7 @@ RUN pip3 install jupyterlab
 USER jovyan
 WORKDIR /home/jovyan
 RUN cp /etc/skel/*.ipynb .
+USER root
+
+ENV USER=/jovyan
 ENV HOME=/home/jovyan
-ENV PORT=8888
