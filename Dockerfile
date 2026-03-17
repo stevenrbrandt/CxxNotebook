@@ -92,4 +92,5 @@ RUN pip3 install jupyterlab
 USER jovyan
 WORKDIR /home/jovyan
 RUN cp /etc/skel/*.ipynb .
+ENV HOME=/home/jovyan
 ENV PORT=8888
